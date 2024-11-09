@@ -127,22 +127,22 @@
                 </div>
             </section>  
         </div>
- <script>
+<script>
     document.addEventListener("DOMContentLoaded", () => {
         const jobForm = document.querySelector("form");
 
         jobForm.addEventListener("submit", function(event) {
             event.preventDefault();  // Prevent form from submitting
 
-            // Clear any previous error messages
+            // Clear previous error messages
             const errorMessages = document.querySelectorAll(".error-message");
             errorMessages.forEach(msg => msg.remove());
 
-            // Retrieve form data
+            // Retrieve form fields
             const nameField = document.getElementById("last-name");
             const emailField = document.getElementById("email");
             const bioField = document.getElementById("bio");
-            const genderFieldset = document.querySelector("fieldset legend");
+            const genderRadio = document.querySelectorAll('input[name="gender"]');
             const profilePictureField = document.getElementById("profile-picture");
             const dobField = document.getElementById("birthday");
             const cityField = document.querySelector("select");
@@ -151,36 +151,48 @@
 
             // Function to show error message
             function showError(field, message) {
-                const error = document.createElement("div");
+                const error = document.createElement("p");
                 error.className = "error-message";
                 error.textContent = message;
+                error.style.color = "red";
                 field.parentNode.insertBefore(error, field.nextSibling);
                 hasError = true;
             }
 
             // Validate each field and show specific error messages
-            if (!nameField.value.trim()) showError(nameField, "Please enter your name.");
-            if (!emailField.value.trim()) showError(emailField, "Please enter your email.");
-            if (!bioField.value.trim()) showError(bioField, "Please provide a bio.");
-            if (!document.querySelector('input[name="gender"]:checked')) 
-                showError(genderFieldset, "Please select your gender.");
-            if (!profilePictureField.value.trim()) showError(profilePictureField, "Please upload a profile picture.");
-            if (!dobField.value.trim()) showError(dobField, "Please enter your date of birth.");
-            if (!cityField.value.trim()) showError(cityField, "Please select your city.");
+            if (!nameField.value.trim()) showError(nameField, "Input not valid: Please enter your name.");
+            if (!emailField.value.trim()) showError(emailField, "Input not valid: Please enter your email.");
+            if (!bioField.value.trim()) showError(bioField, "Input not valid: Please provide a bio.");
+            
+            // Validate gender selection
+            let genderSelected = false;
+            genderRadio.forEach(radio => {
+                if (radio.checked) genderSelected = true;
+            });
+            if (!genderSelected) {
+                showError(genderRadio[0].closest('fieldset'), "Input not valid: Please select your gender.");
+            }
+            
+            if (!profilePictureField.value.trim()) showError(profilePictureField, "Input not valid: Please upload a profile picture.");
+            if (!dobField.value.trim()) showError(dobField, "Input not valid: Please enter your date of birth.");
+            if (!cityField.value.trim()) showError(cityField, "Input not valid: Please select your city.");
 
             // If no errors, proceed with form submission
             if (!hasError) {
-                alert("Form submitted successfully!");
+                document.getElementById("demo").textContent = "Input OK";
                 jobForm.reset(); // Reset form fields after successful submission
+            } else {
+                document.getElementById("demo").textContent = "Input not valid";
             }
         });
 
-        // Ensure radio buttons have the same name for proper selection
+        // Set radio buttons with same name for gender
         document.querySelector('input[type="radio"][name="male"]').name = "gender";
         document.querySelector('input[type="radio"][name="female"]').name = "gender";
         document.querySelector('input[type="radio"][name="Prefer not to say"]').name = "gender";
     });
 </script>
+
 
 
         <footer><p>©2024 TejasTech AI</p></footer>
