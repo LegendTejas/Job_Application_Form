@@ -127,7 +127,50 @@
                 </div>
             </section>  
         </div>
-         
+         <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const jobForm = document.querySelector("form");
+        
+        jobForm.addEventListener("submit", function(event) {
+            event.preventDefault();  // Prevent form from submitting immediately
+            
+            // Retrieve form data
+            const name = document.getElementById("last-name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const bio = document.getElementById("bio").value.trim();
+            const gender = document.querySelector('input[name="gender"]:checked');
+            const profilePicture = document.getElementById("profile-picture").value.trim();
+            const dob = document.getElementById("birthday").value.trim();
+            const city = document.querySelector("select").value.trim();
+
+            let errorMessages = [];  // Array to store error messages
+
+            // Check each field and add specific error messages
+            if (!name) errorMessages.push("Please enter your name.");
+            if (!email) errorMessages.push("Please enter your email.");
+            if (!bio) errorMessages.push("Please provide a bio.");
+            if (!gender) errorMessages.push("Please select your gender.");
+            if (!profilePicture) errorMessages.push("Please upload a profile picture.");
+            if (!dob) errorMessages.push("Please enter your date of birth.");
+            if (!city) errorMessages.push("Please select your city.");
+
+            if (errorMessages.length > 0) {
+                // Display all error messages if there are any
+                alert("Form submission failed:\n" + errorMessages.join("\n"));
+            } else {
+                // Proceed if there are no errors
+                alert("Form submitted successfully!");
+                jobForm.reset(); // Reset form fields after successful submission
+            }
+        });
+
+        // Set gender radio button name for exclusive selection
+        document.querySelector('input[type="radio"][name="male"]').name = "gender";
+        document.querySelector('input[type="radio"][name="female"]').name = "gender";
+        document.querySelector('input[type="radio"][name="Prefer not to say"]').name = "gender";
+    });
+</script>
+
         <footer><p>©2024 TejasTech AI</p></footer>
     </body>
 </html>
