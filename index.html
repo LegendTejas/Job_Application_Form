@@ -17,16 +17,17 @@
             </div>
             <header>
                 <h1 class="tejas">TejasTech</h1>
-              <nav>
-                <ul>
-                  <li><a href="#about_us"accesskey="a">ABOUT US</a></li>
-                  <li><a href="#application-form"accesskey="b">FORM</a></li>
-                  <li><a href="#contact_us"accesskey="c">CONTACT </a></li>
-                </ul>
-              </nav>
-              </header>
+                <nav>
+                    <ul>
+                        <li><a href="#about_us" accesskey="a">ABOUT US</a></li>
+                        <li><a href="#application-form" accesskey="b">FORM</a></li>
+                        <li><a href="#contact_us" accesskey="c">CONTACT</a></li>
+                    </ul>
+                </nav>
+            </header>
         </div>
-        <div class="about_us"id="about_us">
+        
+        <div class="about_us" id="about_us">
             <h1>About Us</h1>
             <pre>
                 At TejasTech, we are dedicated to transforming the world through Artificial Intelligence.
@@ -46,155 +47,152 @@
                 We are passionate about pushing the boundaries of technology while ensuring that our AI solutions are fair, unbiased, and designed to benefit society.
             
                 Join us on our journey to harness the power of AI and make a positive impact across industries. Together, we can shape a smarter, more efficient future.
-
-
-                </pre>
+            </pre>
         </div><br><br>
+
         <h1 id="application-form">Job Application Form</h1>
         <p>Please fill out this form with the required information</p>
-        <form action="">
-                <fieldset>
-                    <label for="last-name">Enter Name: <input id="last-name" name="last-name" type="text" required /></label>
-                    <label for="email">Enter Your Email: <input id="email"name="email" type="email" required /></label><br>
-                    </fieldset>
-                    <fieldset>
-                        <legend>Gender</legend>
-                        <label for="gender"><input id="gender" type="radio" name="male" class="inline">Male</label>
-                        <label for="gender"><input id="gender" type="radio" name="female" class="inline">Female</label>
-                        <label for="gender"><input id="gender" type="radio" name="Prefer not to say" class="inline">Prefer Not to Say</label>
-                    </fieldset>
-                      <fieldset>
-                    <label for="profile-picture">Upload a profile picture:<input id="profile-picture" type="file"name="file" /></label><br>
-                    <label for="birthday">Date of Birth:<input type="date" id="birthday" name="birthday" /></label><br><br>
-                    <label for="address">Select City
-                        <select>
-                            <option value="kozhikode">Kozhikode</option>
-                            <option value="Agra">Agra</option>
-                            <option value="Milan">Milan</option>
-                            <option value="newyork">New York</option>
-                            <option value="Manchester">Manchester</option>
-                            <option value="Jalandhar">Jalandhar</option>
-                            <option value="Mumbai">Mumbai</option>
-                        </select>
-                    </label>
-                    <label for="bio">Provide a bio:
-                    <textarea id="bio" name="bio" rows="3" cols="30"placeholder="About Yourself..."></textarea>
-                    </label>
-                </fieldset>
-                <input type="submit" value="Submit" />
+        <form id="jobForm">
+            <fieldset>
+                <label for="last-name">Enter Name: <input id="last-name" name="last-name" type="text" required /></label>
+                <label for="email">Enter Your Email: <input id="email" name="email" type="email" required /></label><br>
             </fieldset>
+            
+            <fieldset>
+                <legend>Gender</legend>
+                <label for="gender"><input id="gender-male" type="radio" name="gender" value="male"> Male</label>
+                <label for="gender"><input id="gender-female" type="radio" name="gender" value="female"> Female</label>
+                <label for="gender"><input id="gender-prefer" type="radio" name="gender" value="prefer-not-to-say"> Prefer Not to Say</label>
+            </fieldset>
+            
+            <fieldset>
+                <label for="profile-picture">Upload a profile picture: <input id="profile-picture" type="file" name="file" /></label><br>
+                <label for="birthday">Date of Birth: <input type="date" id="birthday" name="birthday" /></label><br><br>
+                
+                <label for="city">Select City:
+                    <select id="city" name="city">
+                        <option value="">Select a city</option>
+                        <option value="kozhikode">Kozhikode</option>
+                        <option value="agra">Agra</option>
+                        <option value="milan">Milan</option>
+                        <option value="newyork">New York</option>
+                        <option value="manchester">Manchester</option>
+                        <option value="jalandhar">Jalandhar</option>
+                        <option value="mumbai">Mumbai</option>
+                    </select>
+                </label>
+                
+                <label for="bio">Provide a bio:
+                    <textarea id="bio" name="bio" rows="3" cols="30" placeholder="About Yourself..."></textarea>
+                </label>
+            </fieldset>
+            
+            <input type="submit" value="Submit" />
         </form>
-        <div class="container"id="contact_us">
+
+        <div class="container" id="contact_us">
             <div style="text-align:center">
                 <h2>Contact Us</h2>
-                <p>leave us a message:</p>
+                <p>Leave us a message:</p>
             </div>
             <div class="row">
                 <div class="column">
-                    <img src="https://burst.shopifycdn.com/photos/contact-us-image.jpg?width=1000&format=pjpg&exif=0&iptc=0"style="width:100%">
+                    <img src="https://burst.shopifycdn.com/photos/contact-us-image.jpg?width=1000&format=pjpg&exif=0&iptc=0" style="width:100%">
                 </div>
                 <div class="column">
-                    <form action>
-                        <label for="name">Name<input type="text" id="name" name="name"placeholder="Your name.." required></label> 
-                        <label for="country">Country</label>
-                        <select id="country" name="country">
-                            <option value="india">India</option>
-                            <option value="australia">Australia</option>
-                            <option value="canada">Canada</option>
-                            <option value="usa">USA</option>
-                        </select>
-                        <label for="subject">Subject</label>
-                        <textarea id="subject" name="subject"placeholder="Write something.."style="height:100px"></textarea>
+                    <form action="">
+                        <label for="name">Name: <input type="text" id="name" name="name" placeholder="Your name.." required></label>
+                        <label for="country">Country:
+                            <select id="country" name="country">
+                                <option value="india">India</option>
+                                <option value="australia">Australia</option>
+                                <option value="canada">Canada</option>
+                                <option value="usa">USA</option>
+                            </select>
+                        </label>
+                        <label for="subject">Subject:
+                            <textarea id="subject" name="subject" placeholder="Write something.." style="height:100px"></textarea>
+                        </label>
                         <input type="submit" value="Submit">
                     </form>
                 </div>
             </div>
-            <section id="home-section">
-                <div class="overlay">
-                    
-                    <p>Exploring AI and Data Engineering, and sharing my projects with the world.</p>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/tejas-tp-/" target="_blank">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRokEYt0yyh6uNDKL8uksVLlhZ35laKNQgZ9g&s" alt="LinkedIn logo" class="social-icon"> LinkedIn
-                        </a>
-                        <a href="https://github.com/LegendTejas" target="_blank">
-                            <img src="https://www.dockhunt.com/_next/image?url=https%3A%2F%2Fdockhunt-images.nyc3.cdn.digitaloceanspaces.com%2F69257cb2-1b88-4d76-ae6b-5ef6469d1a23&w=384&q=75" alt="GitHub logo" class="social-icon"> GitHub
-                        </a>
-                        <a href="https://x.com/tejastp_09" target="_blank">
-                            <img src="https://img.freepik.com/premium-vector/new-twitter-logo-x-2023-twitter-x-logo-official-vector-download_691560-10797.jpg?semt=ais_hybrid" alt="Twitter logo" class="social-icon"> Twitter
-                        </a>
-                    </div>
-                </div>
-            </section>  
         </div>
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const jobForm = document.querySelector("form");
 
-        jobForm.addEventListener("submit", function(event) {
-            event.preventDefault();  // Prevent form from submitting
+        <footer>
+            <p>©2024 TejasTech AI</p>
+        </footer>
 
-            // Clear previous error messages
-            const errorMessages = document.querySelectorAll(".error-message");
-            errorMessages.forEach(msg => msg.remove());
+        <script>
+            // Form validation script
+            document.getElementById("jobForm").addEventListener("submit", function(event) {
+                event.preventDefault(); // Prevent form submission
+                
+                // Clear previous error messages
+                const errorMessages = document.querySelectorAll(".error-message");
+                errorMessages.forEach(msg => msg.remove());
+                
+                let hasError = false;
 
-            // Retrieve form fields
-            const nameField = document.getElementById("last-name");
-            const emailField = document.getElementById("email");
-            const bioField = document.getElementById("bio");
-            const genderRadio = document.querySelectorAll('input[name="gender"]');
-            const profilePictureField = document.getElementById("profile-picture");
-            const dobField = document.getElementById("birthday");
-            const cityField = document.querySelector("select");
+                // Get all form fields
+                const nameField = document.getElementById("last-name");
+                const emailField = document.getElementById("email");
+                const bioField = document.getElementById("bio");
+                const genderFields = document.querySelectorAll('input[name="gender"]');
+                const profilePictureField = document.getElementById("profile-picture");
+                const dobField = document.getElementById("birthday");
+                const cityField = document.getElementById("city");
 
-            let hasError = false;
+                // Validation function to show error messages
+                function showError(field, message) {
+                    const error = document.createElement("p");
+                    error.className = "error-message";
+                    error.textContent = message;
+                    field.parentNode.insertBefore(error, field.nextSibling);
+                    hasError = true;
+                }
 
-            // Function to show error message
-            function showError(field, message) {
-                const error = document.createElement("p");
-                error.className = "error-message";
-                error.textContent = message;
-                error.style.color = "red";
-                field.parentNode.insertBefore(error, field.nextSibling);
-                hasError = true;
-            }
+                // Validate each field
+                if (!nameField.value.trim()) {
+                    showError(nameField, "Please enter your name.");
+                }
 
-            // Validate each field and show specific error messages
-            if (!nameField.value.trim()) showError(nameField, "Input not valid: Please enter your name.");
-            if (!emailField.value.trim()) showError(emailField, "Input not valid: Please enter your email.");
-            if (!bioField.value.trim()) showError(bioField, "Input not valid: Please provide a bio.");
-            
-            // Validate gender selection
-            let genderSelected = false;
-            genderRadio.forEach(radio => {
-                if (radio.checked) genderSelected = true;
+                if (!emailField.value.trim()) {
+                    showError(emailField, "Please enter your email.");
+                }
+
+                if (!bioField.value.trim()) {
+                    showError(bioField, "Please provide a bio.");
+                }
+
+                let genderSelected = false;
+                genderFields.forEach(field => {
+                    if (field.checked) {
+                        genderSelected = true;
+                    }
+                });
+                if (!genderSelected) {
+                    showError(genderFields[0].closest('fieldset'), "Please select your gender.");
+                }
+
+                if (!profilePictureField.value.trim()) {
+                    showError(profilePictureField, "Please upload a profile picture.");
+                }
+
+                if (!dobField.value.trim()) {
+                    showError(dobField, "Please enter your date of birth.");
+                }
+
+                if (!cityField.value.trim()) {
+                    showError(cityField, "Please select your city.");
+                }
+
+                // If there are no errors, show success message
+                if (!hasError) {
+                    alert("Form submitted successfully!");
+                    // You can add further processing here (e.g., submitting the form to a server)
+                }
             });
-            if (!genderSelected) {
-                showError(genderRadio[0].closest('fieldset'), "Input not valid: Please select your gender.");
-            }
-            
-            if (!profilePictureField.value.trim()) showError(profilePictureField, "Input not valid: Please upload a profile picture.");
-            if (!dobField.value.trim()) showError(dobField, "Input not valid: Please enter your date of birth.");
-            if (!cityField.value.trim()) showError(cityField, "Input not valid: Please select your city.");
-
-            // If no errors, proceed with form submission
-            if (!hasError) {
-                document.getElementById("demo").textContent = "Input OK";
-                jobForm.reset(); // Reset form fields after successful submission
-            } else {
-                document.getElementById("demo").textContent = "Input not valid";
-            }
-        });
-
-        // Set radio buttons with same name for gender
-        document.querySelector('input[type="radio"][name="male"]').name = "gender";
-        document.querySelector('input[type="radio"][name="female"]').name = "gender";
-        document.querySelector('input[type="radio"][name="Prefer not to say"]').name = "gender";
-    });
-</script>
-
-
-
-        <footer><p>©2024 TejasTech AI</p></footer>
+        </script>
     </body>
 </html>
