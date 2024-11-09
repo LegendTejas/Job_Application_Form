@@ -245,15 +245,14 @@ input[type=submit]:hover {
 .social-links a:hover {
   color: red;
 }
-.error-message {
-    color: red;
-    font-size: 0.9em;
-    margin-top: 5px;
-}
-
 footer{
   background-color:rgb(34, 32, 32);
   padding: 0.1px;
   color:white;
   text-align: center;
+}
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
 }
