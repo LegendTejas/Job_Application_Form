@@ -127,7 +127,38 @@
                 </div>
             </section>  
         </div>
-          
+          <script>
+    // Wait for the DOM to load before running the script
+    document.addEventListener("DOMContentLoaded", () => {
+        // Validate Job Application Form
+        const jobForm = document.querySelector("form");
+        
+        jobForm.addEventListener("submit", function(event) {
+            event.preventDefault();  // Prevent form from submitting immediately
+            
+            // Retrieve form data
+            const name = document.getElementById("last-name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const bio = document.getElementById("bio").value.trim();
+            const gender = document.querySelector('input[name="gender"]:checked');
+            
+            // Check required fields
+            if (!name || !email || !bio || !gender) {
+                alert("Please fill in all required fields.");
+                return;
+            }
+
+            alert("Form submitted successfully!");
+            jobForm.reset(); // Reset form fields after successful submission
+        });
+        
+        // Radio Button Selection Correction
+        document.getElementById("male").name = "gender";
+        document.getElementById("female").name = "gender";
+        document.getElementById("prefer-not-say").name = "gender";
+    });
+</script>
+
         <footer><p>©2024 TejasTech AI</p></footer>
     </body>
 </html>
