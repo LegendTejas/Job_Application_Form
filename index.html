@@ -52,7 +52,7 @@
         </div><br><br>
         <h1 id="application-form">Job Application Form</h1>
         <p>Please fill out this form with the required information</p>
-        <form action="" id="jobForm" onsubmit="return validateForm()">
+        <form id="jobForm" onsubmit="return validateForm(event)">
 
                 <fieldset>
                     <label for="last-name">Enter Name: <input id="last-name" name="last-name" type="text" required /></label>
@@ -129,76 +129,82 @@
             </section>  
         </div>
         <script>
-    function validateForm() {
-        // Remove any previous error messages
-        const errorMessages = document.querySelectorAll(".error-message");
-        for (let i = 0; i < errorMessages.length; i++) {
-            errorMessages[i].remove();
-        }
-
-        // Flag to track if there are errors
-        let hasError = false;
-
-        const nameField = document.getElementById("last-name");
-        const emailField = document.getElementById("email");
-        const bioField = document.getElementById("bio");
-        const genderFields = document.querySelectorAll('input[name="gender"]');
-        const profilePictureField = document.getElementById("profile-picture");
-        const dobField = document.getElementById("birthday");
-        const cityField = document.getElementById("city");
-
-        // Function to show an error message for a field
-        function showError(field, message) {
-            const error = document.createElement("p");
-            error.className = "error-message";
-            error.textContent = message;
-            field.parentNode.insertBefore(error, field.nextSibling);
-            hasError = true;
-        }
-
-        if (!nameField.value) {
-            showError(nameField, "Please enter your name.");
-        }
-
-        if (!emailField.value) {
-            showError(emailField, "Please enter your email.");
-        }
-
-        if (!bioField.value) {
-            showError(bioField, "Please provide a bio.");
-        }
-
-        let genderSelected = false;
-        for (let i = 0; i < genderFields.length; i++) {
-            if (genderFields[i].checked) {
-                genderSelected = true;
-                break;
+            function validateForm(event) {
+                // Prevent form submission
+                event.preventDefault();
+        
+                // Remove any previous error messages
+                const errorMessages = document.querySelectorAll(".error-message");
+                for (let i = 0; i < errorMessages.length; i++) {
+                    errorMessages[i].remove();
+                }
+        
+                // Flag to track if there are errors
+                let hasError = false;
+        
+                const nameField = document.getElementById("last-name");
+                const emailField = document.getElementById("email");
+                const bioField = document.getElementById("bio");
+                const genderFields = document.querySelectorAll('input[name="gender"]');
+                const profilePictureField = document.getElementById("profile-picture");
+                const dobField = document.getElementById("birthday");
+                const cityField = document.getElementById("city");
+        
+                // Function to show an error message for a field
+                function showError(field, message) {
+                    const error = document.createElement("p");
+                    error.className = "error-message";
+                    error.textContent = message;
+                    field.parentNode.insertBefore(error, field.nextSibling);
+                    hasError = true;
+                }
+        
+                if (!nameField.value) {
+                    showError(nameField, "Please enter your name.");
+                }
+        
+                if (!emailField.value) {
+                    showError(emailField, "Please enter your email.");
+                }
+        
+                if (!bioField.value) {
+                    showError(bioField, "Please provide a bio.");
+                }
+        
+                let genderSelected = false;
+                for (let i = 0; i < genderFields.length; i++) {
+                    if (genderFields[i].checked) {
+                        genderSelected = true;
+                        break;
+                    }
+                }
+                if (!genderSelected) {
+                    showError(genderFields[0].closest('fieldset'), "Please select your gender.");
+                }
+        
+                if (!profilePictureField.value) {
+                    showError(profilePictureField, "Please upload a profile picture.");
+                }
+        
+                if (!dobField.value) {
+                    showError(dobField, "Please enter your date of birth.");
+                }
+        
+                if (!cityField.value) {
+                    showError(cityField, "Please select your city.");
+                }
+        
+                if (!hasError) {
+                    alert("Form submitted successfully!");
+                    return true;
+                } else {
+                    return false;
+                }
             }
-        }
-        if (!genderSelected) {
-            showError(genderFields[0].closest('fieldset'), "Please select your gender.");
-        }
-
-        if (!profilePictureField.value) {
-            showError(profilePictureField, "Please upload a profile picture.");
-        }
-
-        if (!dobField.value) {
-            showError(dobField, "Please enter your date of birth.");
-        }
-
-        if (!cityField.value) {
-            showError(cityField, "Please select your city.");
-        }
-
-        if (!hasError) {
-            alert("Form submitted successfully!");
-            return true;
-        } else {
-            return false;
-        }
-    }
-</script>
+        </script>
+        
         <footer><p>©2024 TejasTech AI</p></footer>
+        
+       
     </body>
 </html>
